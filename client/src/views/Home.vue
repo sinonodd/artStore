@@ -3,9 +3,11 @@
     <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
     <div class="home row">
       <div v-for="product in products" :key="product._id" class="col-md-4 playlist">
+        <router-link :to="{name: 'Product', params: {id: product._id}}" class="btn">
           <img :src="product.image" class="img-thumbnail">
+        </router-link>
           <h4>{{product.name}}</h4>
-          <span class="text-muted">{{product.price}}$</span>
+          <span class="text-muted d-block">{{product.price}}$</span>
           <button @click="addToCart(product)" class="btn btn-dark">Add to cart</button>
       </div>
     </div>
@@ -35,6 +37,12 @@ export default {
     addToCart(item) {
       this.cart.push(item);
       this.empty = false;
+    },
+    async showProduct(id) {
+      const res = await fetch(`API_URL${id}`);
+      const product = await res.json();
+      console.log(product);
+      this.$router.push();
     },
   },
 };

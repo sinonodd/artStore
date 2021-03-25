@@ -23,8 +23,8 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem('token');
-      this.$router.push('/login');
       this.button = 'Sign up';
+      this.$router.push('/login');
     },
     signup() {
       this.$router.push('/signup');

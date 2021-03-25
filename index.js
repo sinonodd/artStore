@@ -6,6 +6,7 @@ const auth = require('./auth');
 const cors = require('cors');
 const middlewares = require('./auth/middlewares');
 const productsApi = require('./api/products');
+const productApi = require('./api/product.js');
 const usersApi = require('./api/users');
 const db = require('./db/connection.js');
 const products = db.get('products');
@@ -21,6 +22,7 @@ app.get('/', async (req,res) => {
 });
 app.use('/auth', auth);
 app.use('/api/v1/users', middlewares.isLoggedIn, middlewares.isAdmin, usersApi);
+app.use('/api/v1/product', productApi);
 app.use('/api/v1/products', middlewares.isLoggedIn, middlewares.isAdmin, productsApi);
 
 function notFound(req,res,next) {
