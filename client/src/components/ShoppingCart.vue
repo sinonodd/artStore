@@ -12,11 +12,17 @@
         <button @click="removeItem(item)" class="btn btn-danger my-auto">Remove</button>
       </div>
       <button v-if="!empty" @click="checkout()" class="btn btn-warning">Checkout</button>
+      <Paypal></Paypal>
     </div>
   </div>
 </template>
 <script>
+import Paypal from '@/components/Paypal.vue';
+
 export default {
+  components: {
+    Paypal,
+  },
   props: ['products', 'cart', 'empty'],
   data: () => ({
     active: false,
