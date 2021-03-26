@@ -11,8 +11,9 @@
         <h6 class="m-auto">{{item.category}}</h6>
         <button @click="removeItem(item)" class="btn btn-danger my-auto">Remove</button>
       </div>
+      <h1>{{total()}}</h1>
       <button v-if="!empty" @click="checkout()" class="btn btn-warning">Checkout</button>
-      <Paypal></Paypal>
+      <Paypal :cart="cart"></Paypal>
     </div>
   </div>
 </template>
@@ -26,8 +27,13 @@ export default {
   props: ['products', 'cart', 'empty'],
   data: () => ({
     active: false,
+    prices: [],
   }),
   methods: {
+    total() {
+      const result = this.cart.reduce((acc, item) => acc + parseInt(item.price, 10), 0);
+      return result;
+    },
     show() {
       this.active = !this.active;
     },
