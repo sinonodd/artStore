@@ -11,9 +11,8 @@
         <h6 class="m-auto">{{item.category}}</h6>
         <button @click="removeItem(item)" class="btn btn-danger my-auto">Remove</button>
       </div>
-      <h1>{{total()}}</h1>
-      <button v-if="!empty" @click="checkout()" class="btn btn-warning">Checkout</button>
-      <Paypal :cart="cart"></Paypal>
+      <h1 class="mr-5">{{total()}}</h1>
+      <Paypal :sum="sum"></Paypal>
     </div>
   </div>
 </template>
@@ -28,10 +27,13 @@ export default {
   data: () => ({
     active: false,
     prices: [],
+    sum: null,
   }),
   methods: {
     total() {
       const result = this.cart.reduce((acc, item) => acc + parseInt(item.price, 10), 0);
+      this.sum = result;
+      console.log(this.sum);
       return result;
     },
     show() {
