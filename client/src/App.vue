@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <button @click="Do()" to="/">{{button}}</button>
+    <div class="mb-5 navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+      <router-link to="/">Z-store</router-link>
+      <button class="ml-auto" @click="Do()" to="/">{{button}}</button>
     </div>
     <router-view class="container"/>
   </div>
@@ -59,5 +59,6 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+  text-decoration: none;
 }
 </style>
