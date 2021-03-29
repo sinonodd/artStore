@@ -1,10 +1,13 @@
 <template>
   <div>
+    <img :src="background" width="80%" alt="hero">
     <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
+    <h1 class="ml-2 text-left">Featured products</h1>
     <div class="home row">
-      <div v-for="product in products" :key="product._id" class="col-md-4 playlist">
+      <Categories class="col-md-3"></Categories>
+      <div v-for="product in products" :key="product._id" class="col-md-3 mx-auto">
         <router-link :to="{name: 'Product', params: {id: product._id}}" class="btn">
-          <img :src="product.image" class="img-thumbnail">
+          <img :src="product.image" width="80%">
         </router-link>
           <h4>{{product.name}}</h4>
           <span class="text-muted d-block">{{product.price}}$</span>
@@ -16,13 +19,18 @@
 
 <script>
 import ShoppingCart from '@/components/ShoppingCart.vue';
+import Categories from '@/components/Categories.vue';
 
 const API_URL = 'http://localhost:5000/';
 export default {
   components: {
     ShoppingCart,
+    Categories,
   },
   data: () => ({
+    /* eslint-disable global-require */
+    background: require('../../public/bg0.jpg'),
+    /* eslint-enable global-require */
     empty: true,
     id: '',
     products: [],

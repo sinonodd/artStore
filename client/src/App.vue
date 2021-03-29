@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <div class="mb-5 navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
       <router-link to="/">Z-store</router-link>
       <button class="ml-auto" @click="Do()" to="/">{{button}}</button>
     </div>
-    <router-view class="container"/>
+    <router-view class=""/>
   </div>
 </template>
 <script>
@@ -46,6 +46,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-image: url('../public/bg1.jpg');
 }
 
 #nav {
