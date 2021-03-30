@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="conatiner" id="app">
     <div class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
       <router-link to="/">Z-store</router-link>
       <button class="ml-auto" @click="Do()" to="/">{{button}}</button>
@@ -46,7 +46,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: url('../public/bg1.jpg');
+  background: #eee;
 }
 
 #nav {

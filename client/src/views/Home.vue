@@ -2,19 +2,20 @@
   <div>
     <img :src="background" width="80%" alt="hero">
     <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
-    <h1 class="ml-2 text-left">Featured products</h1>
-    <div class="home row">
-      <Categories class="col-md-3"></Categories>
-      <div v-for="product in products" :key="product._id" class="col-md-3 mx-auto">
-        <router-link :to="{name: 'Product', params: {id: product._id}}" class="btn">
-          <img :src="product.image" width="80%">
-        </router-link>
-          <h4>{{product.name}}</h4>
-          <span class="text-muted d-block">{{product.price}}$</span>
-          <button @click="addToCart(product)" class="btn btn-dark">Add to cart</button>
+    <div class="ml-auto mr-auto container row">
+      <Categories class="col-md-2"></Categories>
+      <div class="home ml-auto row col-md-10">
+        <div v-for="product in products" :key="product._id" class="col-md-4 mx-auto">
+          <router-link :to="{name: 'Product', params: {id: product._id}}" class="btn">
+            <img :src="product.image" width="70%">
+          </router-link>
+            <h4>{{product.name}}</h4>
+            <span class="text-muted d-block">{{product.price}}$</span>
+            <button @click="addToCart(product)" class="btn btn-dark">Add to cart</button>
+        </div>
       </div>
     </div>
-  </div>
+      </div>
 </template>
 
 <script>
@@ -29,7 +30,7 @@ export default {
   },
   data: () => ({
     /* eslint-disable global-require */
-    background: require('../../public/bg0.jpg'),
+    background: require('../assets/hero.jpg'),
     /* eslint-enable global-require */
     empty: true,
     id: '',
