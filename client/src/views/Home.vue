@@ -1,15 +1,15 @@
 <template>
   <div>
-    <img :src="background" width="80%" alt="hero">
+    <img :src="background" width="100%" alt="hero">
     <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
     <div class="ml-auto mr-auto container row">
-      <Categories class="col-md-2"></Categories>
+      <Categories class="m-0 col-md-2"></Categories>
       <div class="home ml-auto row col-md-10">
         <div v-for="product in products" :key="product._id" class="col-md-4 mx-auto">
           <router-link :to="{name: 'Product', params: {id: product._id}}" class="btn">
-            <img :src="product.image" width="70%">
+            <img :src="product.image" width="80%">
           </router-link>
-            <h4>{{product.name}}</h4>
+            <h4 class="text-muted">{{product.name}}</h4>
             <span class="text-muted d-block">{{product.price}}$</span>
             <button @click="addToCart(product)" class="btn btn-dark">Add to cart</button>
         </div>
@@ -56,3 +56,8 @@ export default {
   },
 };
 </script>
+<style>
+.home {
+  background: #413709;
+}
+</style>
