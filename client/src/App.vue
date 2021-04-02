@@ -1,6 +1,6 @@
 <template>
   <div class="conatiner" id="app">
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+    <div class="navbar navbar-expand-lg" id="nav">
       <router-link to="/">Z-store</router-link>
       <button class="ml-auto" @click="Do()" to="/">{{button}}</button>
     </div>
@@ -48,6 +48,9 @@ export default {
   color: #2c3e50;
   background: #41312c;
 }
+.navbar {
+  background: #040404;
+}
 
 #nav {
   padding: 30px;
@@ -59,7 +62,7 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #b62821;
   text-decoration: none;
 }
 </style>
