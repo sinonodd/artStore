@@ -1,18 +1,30 @@
 <template>
   <div class="text-right d-block">
-    <button @click="show()" class="btn btn-success">Cart
-      <span class="badge badge-light badge-pill">{{cart.length}}</span>
+    <button @click="show()" class="btn btn-dark">
+      <!-- eslint-disable -->
+      <svg fill="white" width="24" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+		    <path d="m508.76 74.466c-2.803-3.503-7.046-5.542-11.533-5.542h-393.08l-10.992-47.63c-1.547-6.701-7.514-11.448-14.391-11.448h-64c-8.156 0-14.769 6.613-14.769 14.77s6.613 14.769 14.769 14.769h52.251l74.612 323.32c1.546 6.701 7.514 11.448 14.391 11.448h295.92c8.157 0 14.769-6.613 14.769-14.769 0-8.157-6.613-14.769-14.769-14.769h-284.16l-11.36-49.231h296.51c6.908 0 12.893-4.788 14.409-11.527l44.307-196.92c0.985-4.378-0.073-8.965-2.876-12.469zm-67.656 191.38h-291.51l-38.627-167.38h367.8l-37.661 167.38z"/>
+		    <path d="m216.62 393.85c-29.86 0-54.154 24.293-54.154 54.154s24.293 54.154 54.154 54.154c29.86 0 54.154-24.293 54.154-54.154s-24.293-54.154-54.154-54.154zm0 78.77c-13.573 0-24.615-11.043-24.615-24.616s11.042-24.615 24.615-24.615 24.615 11.042 24.615 24.615-11.042 24.616-24.615 24.616z"/>
+		    <path d="m393.85 393.85c-29.86 0-54.154 24.293-54.154 54.154s24.293 54.154 54.154 54.154c29.86 0 54.154-24.293 54.154-54.154s-24.293-54.154-54.154-54.154zm0 78.77c-13.573 0-24.615-11.042-24.615-24.615s11.042-24.615 24.615-24.615 24.615 11.042 24.615 24.615-11.042 24.615-24.615 24.615z"/>
+      </svg>
+      <!-- eslint-enable -->
+      <span class="ml-1 badge badge-light badge-pill">{{cart.length}}</span>
     </button>
     <div v-if="active" class="mb-4">
-      <div class="row mb-2" v-for="item in cart" :key="item._id">
+      <div class="row mb-2 m-3" v-for="item in cart" :key="item._id">
         <img  width="90" :src="item.image" alt="itemImage">
         <h6 class="m-auto text-secondary">{{item.name}}</h6>
         <h6 class="m-auto text-danger">{{item.price}} MAD</h6>
         <h6 class="m-auto">{{item.category}}</h6>
-        <button @click="removeItem(item)" class="btn btn-danger my-auto">Remove</button>
+        <button @click="removeItem(item)" class="btn btn-danger my-auto">
+        <svg class="mr-1" fill="white" width="20" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0v455h455V0H0z M358.865,242.5h-263v-30h263V242.5z"/>
+        </svg>
+          Remove
+        </button>
       </div>
       <h1 class="mr-5">{{total()}}</h1>
-      <Paypal :sum="sum"></Paypal>
+      <Paypal class="mr-3" :sum="sum"></Paypal>
     </div>
   </div>
 </template>
