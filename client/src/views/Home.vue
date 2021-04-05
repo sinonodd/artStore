@@ -50,13 +50,14 @@ export default {
     const res = await fetch(API_URL);
     const result = await res.json();
     this.products = result;
+    if (localStorage.items) {
+      this.cart = JSON.parse(localStorage.items);
+    }
   },
   methods: {
     addToCart(item) {
       this.cart.push(item);
-      localStorage.item = JSON.stringify({ item });
-      const payload = JSON.parse(localStorage.item);
-      localStorage.item = payload;
+      localStorage.items = JSON.stringify(this.cart);
       this.empty = false;
     },
     async showProduct(id) {
