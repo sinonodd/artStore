@@ -2,24 +2,29 @@
   <div class="product-card">
     <img :src="background" width="100%" alt="hero">
     <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
-    <div class="row ml-auto mr-auto container">
-      <Categories class="m-0 col-md-2"></Categories>
-      <div class="home ml-auto row col-md-10">
+    <div class="home row ml-auto mr-auto container">
+      <Categories class="categories col-md-2"></Categories>
+      <div class="ml-auto row col-md-10">
         <div v-for="product in products" :key="product._id" class="mt-4 col-md-3 mx-auto">
-          <div class="card bg-light shadow rounded">
+          <div class="card bg-light shadow-sm rounded">
             <router-link :to="{name: 'Product', params: {id: product._id}}" class="m-0">
               <img :src="product.image" width="100%">
             </router-link>
-              <h4 class="text-dark">{{product.name}}</h4>
-              <span class="text-muted d-block">{{product.price}}$</span>
-              <button @click="addToCart(product)" class="btn inline btn-dark">
-                <!-- eslint-disable -->
-                <svg class="mr-1" fill="white" width="24" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-	                <path d="m0 0v455h455v-455h-455zm358.86 242.64h-116.5v116.5h-30v-116.5h-116.5v-30h116.5v-116.5h30v116.5h116.5v30z"/>
-                </svg>
-                <!-- eslint-disable -->
-                Add to cart
-              </button>
+              <div class="d-flex justify-content-between">
+                <div class="my-1 d-flex flex-column">
+                  <h6 class="text-secondary text-left ml-1">{{product.name}}</h6>
+                  <span class="text-info d-block text-left ml-1">{{product.price}}$</span>
+                </div>
+                <div class="">
+                  <button @click="addToCart(product)" class="btn inline">
+                    <!-- eslint-disable -->
+                    <svg class="add mr-1" fill="yellow" width="18" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m0 0v455h455v-455h-455zm358.86 242.64h-116.5v116.5h-30v-116.5h-116.5v-30h116.5v-116.5h30v116.5h116.5v30z"/>
+                    </svg>
+                    <!-- eslint-disable -->
+                  </button>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -39,7 +44,7 @@ export default {
   },
   data: () => ({
     /* eslint-disable global-require */
-    background: require('../assets/hero.jpg'),
+    background: require('../assets/hand-painted.jpg'),
     /* eslint-enable global-require */
     empty: true,
     id: '',
@@ -70,13 +75,16 @@ export default {
 };
 </script>
 <style>
-.product-card {
-  background: #767526;
+.home {
+  background: #f2f3f2;
 }
 .card {
   transform: .2s;
 }
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1);
+}
+.add:hover {
+  fill: black;
 }
 </style>

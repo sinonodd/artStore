@@ -1,7 +1,7 @@
 <template>
   <div class="conatiner" id="app">
     <div class="navbar navbar-expand-lg" id="nav">
-      <router-link to="/">Z-store</router-link>
+      <router-link class="text-secondary" to="/">Z-store</router-link>
       <button class="ml-auto" @click="Do()" to="/">{{button}}</button>
     </div>
     <router-view class=""/>
@@ -46,10 +46,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #41312c;
+  background-image: url('./assets/3040791.jpg')
 }
 .navbar {
-  background: #040404;
+  background: #93d2f3;
 }
 
 #nav {
