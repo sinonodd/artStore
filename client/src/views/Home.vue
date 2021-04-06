@@ -18,7 +18,7 @@
                 <div class="">
                   <button @click="addToCart(product)" class="btn inline">
                     <!-- eslint-disable -->
-                    <svg class="add mr-1" fill="yellow" width="18" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="add mr-1" fill="#454541" width="18" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                       <path d="m0 0v455h455v-455h-455zm358.86 242.64h-116.5v116.5h-30v-116.5h-116.5v-30h116.5v-116.5h30v116.5h116.5v30z"/>
                     </svg>
                     <!-- eslint-disable -->

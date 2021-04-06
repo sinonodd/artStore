@@ -1,8 +1,8 @@
 <template>
   <div class="conatiner" id="app">
-    <div class="navbar navbar-expand-lg" id="nav">
-      <router-link class="text-secondary" to="/">Z-store</router-link>
-      <button class="ml-auto" @click="Do()" to="/">{{button}}</button>
+    <div class="navbar navbar-expand-lg fixed-top" id="nav">
+      <router-link class="lead" to="/">Z-store</router-link>
+      <button class="nav-button btn btn-info ml-auto" @click="Do()" to="/">{{button}}</button>
     </div>
     <router-view class=""/>
   </div>
@@ -49,7 +49,10 @@ export default {
   background-image: url('./assets/3040791.jpg')
 }
 .navbar {
-  background: #93d2f3;
+  background: #454541;
+}
+.nav-button {
+  background: #f4ba7c;
 }
 
 #nav {
@@ -62,7 +65,7 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: #b62821;
+  color: #fb7dae;
   text-decoration: none;
 }
 </style>

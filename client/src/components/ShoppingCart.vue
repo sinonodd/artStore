@@ -10,22 +10,29 @@
       <!-- eslint-enable -->
       <span class="ml-1 badge badge-light badge-pill">{{cart.length}}</span>
     </button>
-    <div v-if="active" class="mb-4">
+
+    <div v-if="active" class="cart mb-4">
       <div class="row mb-2 m-3" v-for="item in cart" :key="item._id">
-        <img  width="90" :src="item.image" alt="itemImage">
-        <h6 class="m-auto text-secondary">{{item.name}}</h6>
-        <h6 class="m-auto text-danger">{{item.price}} MAD</h6>
-        <h6 class="m-auto">{{item.category}}</h6>
-        <button @click="removeItem(item)" class="btn btn-danger my-auto">
-        <svg class="mr-1" fill="white" width="20" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+        <img class="col-1" width="90" :src="item.image" alt="itemImage">
+        <h6 class="col-2 m-auto text-secondary">{{item.name}}</h6>
+        <h6 class="col-2 m-auto text-danger">{{item.price}} MAD</h6>
+        <h6 class="col-2 m-auto">{{item.category}}</h6>
+        <button @click="removeItem(item)" class="remove btn my-auto">
+        <svg class="mr-1" fill="#fb7dae" width="18" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
           <path d="M0,0v455h455V0H0z M358.865,242.5h-263v-30h263V242.5z"/>
         </svg>
-          Remove
         </button>
       </div>
-      <h1 class="mr-5">{{total()}}</h1>
-      <Paypal class="mr-3" :sum="sum"></Paypal>
+
+      <div class="border-top row">
+        <div class="row col-5">
+          <h3 class="col-3 text-muted mr-5">Total: </h3>
+          <h3 class="col-4 text-muted mr-5">{{total()}} MAD</h3>
+        </div>
+      </div>
+        <Paypal class="text-center col-3 paypal mr-3" :sum="sum"></Paypal>
     </div>
+
   </div>
 </template>
 <script>
@@ -63,3 +70,8 @@ export default {
   },
 };
 </script>
+<style>
+.cart {
+  background: #f1efec;
+}
+</style>
