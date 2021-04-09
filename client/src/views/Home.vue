@@ -39,26 +39,37 @@ export default {
     filterd: [],
     noFilter: true,
   }),
+  /* eslint-disable */
   async mounted() {
     const res = await fetch(API_URL);
     const result = await res.json();
     this.products = result;
+    this.products.forEach((el) => {
+      el.active = false;
+      console.log(this.products);
+    });
     if (localStorage.items) {
       this.cart = JSON.parse(localStorage.items);
     }
   },
   methods: {
     filter(value) {
-      if (this.filterd.length === 0) { this.noFilter = true; }
-      this.noFilter = false;
       this.products.forEach((el) => {
-        if (el.category === value) {
-          this.filterd.push(el);
-        }
+          if (el.category === value && !el.active) {
+            this.filterd.push(el);
+            this.noFilter = false;
+            return el.active = !el.active;
+          } 
+          if (el.active && el.category === value) {
+            this.filterd.splice(this.filterd.indexOf(el), 1); 
+            if (this.filterd.length === 0) { this.noFilter = true; }
+            return el.active = !el.active;
+          }
       });
       console.log(this.filterd);
     },
   },
+  /* eslint-enable */
 };
 </script>
 <style>
