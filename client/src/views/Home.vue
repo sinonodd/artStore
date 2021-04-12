@@ -12,7 +12,7 @@
       <AllProducts v-if="noFilter" :products="products" :cart="cart"></AllProducts>
       <FilterdProducts v-if="!noFilter" :filterd="filterd"></FilterdProducts>
     </div>
-
+    <Footer :products="products"></Footer>
   </div>
 </template>
 
@@ -21,6 +21,7 @@ import ShoppingCart from '@/components/ShoppingCart.vue';
 import Categories from '@/components/Categories.vue';
 import AllProducts from '@/components/AllProducts.vue';
 import FilterdProducts from '@/components/FilterdProducts.vue';
+import Footer from '@/components/Footer.vue';
 
 const API_URL = 'http://localhost:5000/';
 export default {
@@ -29,6 +30,7 @@ export default {
     Categories,
     AllProducts,
     FilterdProducts,
+    Footer,
   },
   data: () => ({
     /* eslint-disable-next-line global-require */
