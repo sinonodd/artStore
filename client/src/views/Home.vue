@@ -5,12 +5,12 @@
 
     <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
 
-    <div class="featured-products row ml-auto mr-auto container">
+    <div class="featured-products row ml-auto mr-auto mb-5 container">
       <Categories
       @updatedFilter="filter($event)"
       :products="products" class="categories col-md-2"></Categories>
-      <AllProducts v-if="noFilter" :products="products" :cart="cart"></AllProducts>
-      <FilterdProducts v-if="!noFilter" :filterd="filterd"></FilterdProducts>
+      <AllProducts v-if="noFilter" :products="products" :cart="cart" class="mb-4"></AllProducts>
+      <FilterdProducts v-if="!noFilter" :filterd="filterd" class="mb-4"></FilterdProducts>
     </div>
     <Footer :products="products"></Footer>
   </div>
