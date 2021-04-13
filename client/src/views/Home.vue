@@ -8,7 +8,7 @@
     <div class="featured-products row ml-auto mr-auto mb-5 container">
       <Categories
       @updatedFilter="filter($event)"
-      :products="products" class="categories col-md-2"></Categories>
+      :categories="categories" class="categories col-md-2"></Categories>
       <AllProducts v-if="noFilter" :products="products" :cart="cart" class="mb-4"></AllProducts>
       <FilterdProducts v-if="!noFilter" :filterd="filterd" class="mb-4"></FilterdProducts>
     </div>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 import Categories from '@/components/Categories.vue';
 import AllProducts from '@/components/AllProducts.vue';
@@ -37,6 +38,7 @@ export default {
     background: require('../assets/hand-painted.jpg'),
     empty: true,
     products: [],
+    categories: [],
     cart: [],
     filterd: [],
     noFilter: true,
@@ -46,6 +48,7 @@ export default {
     const res = await fetch(API_URL);
     const result = await res.json();
     this.products = result;
+    this.categories = _.uniqBy(this.products, 'category');
     this.products.forEach((el) => {
       el.active = false;
       console.log(this.products);

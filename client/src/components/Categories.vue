@@ -1,7 +1,7 @@
 <template>
   <section class="text-left">
   <h4 class="text-muted categories pb-1 my-4 border-bottom">Categories</h4>
-  <div v-for="product in products" :key="product.category" class="btn-block btn-group-vertical">
+  <div v-for="product in categories" :key="product.category" class="btn-block btn-group-vertical">
     <div class="form-check">
       <input
         @change="filter(product.category)"
@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  props: ['products'],
+  props: ['categories'],
   data: () => ({
     filterd: [],
   }),
