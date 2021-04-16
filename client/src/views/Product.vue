@@ -1,17 +1,52 @@
 <template>
-    <div class="home row">
-      <div class="col-md-4 playlist">
-        <img width="400" :src="product.image" alt="">
-          <h4>{{product.name}}</h4>
-          <span class="text-muted d-block">{{product.price}}$</span>
-          <button @click="addToCart(product)" class="btn btn-dark">Add to cart</button>
+  <div>
+    <Navbar></Navbar>
+    <ShoppingCart></ShoppingCart>
+    <div class="product ml-auto">
+      <div class="d-flex flex-row p-3 card bg-light shadow-sm rounded ml-3">
+        <img :src="product.image" width="50%">
+        <div class="d-flex flex-column container-fluid">
+          <h4 class="mt-2 mb-3 text-muted text-left ml-1">{{product.name}}</h4>
+          <h5 class="mb-3 text-muted text-left ml-1">{{product.category}}</h5>
+          <h5 class="mb-3 text-info d-block text-left ml-1">{{product.price}}$</h5>
+          <button @click="addToCart(product)" class="btn btn-info btn-lg btn-block mb-3 mt-5">
+            <!-- eslint-disable -->
+            <svg class="add mr-1" fill="#454541" width="18" enable-background="new 0 0 455 455" version="1.1" viewBox="0 0 455 455" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+              <path d="m0 0v455h455v-455h-455zm358.86 242.64h-116.5v116.5h-30v-116.5h-116.5v-30h116.5v-116.5h30v116.5h116.5v30z"/>
+            </svg>
+            Add to cart
+            <!-- eslint-enable -->
+          </button>
+          <div class="row p3 shadow-sm mt-auto">
+            <p class="col-6 mb-3 text-muted text-left ml-1">
+              This is a demo text to fill in the empty space till a contact the artist
+              and make him filling this up with anything she desires..
+              This piece of art is part of My daily life experiance and has nothing
+              to do with my clients,
+              if you want me to draw something
+            </p>
+            <button class="col-2 btn btn-info my-auto mx-auto">Order</button>
+            <button class="col-2 btn btn-info my-auto mx-auto">Contact</button>
+          </div>
+        </div>
       </div>
     </div>
+    <Footer></Footer>
+  </div>
 </template>
 <script>
+import Navbar from '@/components/Navbar.vue';
+import ShoppingCart from '@/components/ShoppingCart.vue';
+import Footer from '@/components/Footer.vue';
+
 const API_URL = 'http://localhost:5000/api/v1/product/';
 
 export default {
+  components: {
+    Navbar,
+    ShoppingCart,
+    Footer,
+  },
   data: () => ({
     product: {},
   }),
@@ -24,3 +59,8 @@ export default {
   },
 };
 </script>
+<style>
+.product {
+  margin-top: 83px;
+}
+</style>

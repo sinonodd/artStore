@@ -1,23 +1,27 @@
 <template>
-  <div class="product-card">
+  <div>
+    <Navbar></Navbar>
+    <div class="product-card">
 
-    <img :src="background" width="100%" alt="hero">
+      <img :src="background" width="100%" alt="hero">
 
-    <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
+      <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
 
-    <div class="featured-products row ml-auto mr-auto mb-5 container">
-      <Categories
-      @updatedFilter="filter($event)"
-      :categories="categories" class="categories col-md-2"></Categories>
-      <AllProducts v-if="noFilter" :products="products" :cart="cart" class="mb-4"></AllProducts>
-      <FilterdProducts v-if="!noFilter" :filterd="filterd" class="mb-4"></FilterdProducts>
+      <div class="featured-products row ml-auto mr-auto mb-5 container">
+        <Categories
+        @updatedFilter="filter($event)"
+        :categories="categories" class="categories col-md-2"></Categories>
+        <AllProducts v-if="noFilter" :products="products" :cart="cart" class="mb-4"></AllProducts>
+        <FilterdProducts v-if="!noFilter" :filterd="filterd" class="mb-4"></FilterdProducts>
+      </div>
+      <Footer :products="products"></Footer>
     </div>
-    <Footer :products="products"></Footer>
   </div>
 </template>
 
 <script>
 import _ from 'lodash';
+import Navbar from '@/components/Navbar.vue';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 import Categories from '@/components/Categories.vue';
 import AllProducts from '@/components/AllProducts.vue';
@@ -27,6 +31,7 @@ import Footer from '@/components/Footer.vue';
 const API_URL = 'http://localhost:5000/';
 export default {
   components: {
+    Navbar,
     ShoppingCart,
     Categories,
     AllProducts,
