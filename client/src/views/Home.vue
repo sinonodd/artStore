@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Navbar></Navbar>
+    <Navbar :empty="empty" :products="products" :cart="cart">
+    </Navbar>
     <div class="product-card">
 
       <img :src="background" width="100%" alt="hero">
 
       <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
-
       <div class="featured-products row ml-auto mr-auto mb-5 container">
         <Categories
         @updatedFilter="filter($event)"

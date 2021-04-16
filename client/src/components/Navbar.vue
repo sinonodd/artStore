@@ -18,11 +18,22 @@
         <!-- eslint-enable -->
         Z-store
       </router-link>
-      <button class="nav-button btn btn-info ml-auto" @click="Do()" to="/">{{button}}</button>
+      <div class="d-flex justify-content-center align-items-center ml-auto">
+        <router-link class="text-white" to="/services">SERVICES</router-link>
+        <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
+        <button class="bg-transparent font-weight-bold border-0 text-light ml-auto"
+          @click="Do()" to="/">{{button}}</button>
+      </div>
     </div>
 </template>
 <script>
+import ShoppingCart from '@/components/ShoppingCart.vue';
+
 export default {
+  props: ['empty', 'products', 'cart'],
+  components: {
+    ShoppingCart,
+  },
   data: () => ({
     button: '',
   }),
@@ -66,6 +77,7 @@ export default {
 }
 
 #nav a {
+  text-decoration: none;
   font-weight: bold;
   color: #2c3e50;
 }
