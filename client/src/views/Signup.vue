@@ -37,7 +37,7 @@
           id="confirmPassword"
           placeholder="Confirm password" required>
       </div>
-      <button type="submit" class="btn btn-block btn-lg btn-outline-success">Sign up</button>
+      <button type="submit" class="btn btn-block btn-lg btn-outline-success">Skjhjk</button>
     </form>
   </div>
 </template>

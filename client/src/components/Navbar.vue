@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar navbar-expand-lg fixed-top p-3 shadow" id="nav">
+    <div class="navbar navbar-expand-lg fixed-top p-2 shadow" id="nav">
       <router-link class="lead" to="/">
         <!-- eslint-disable -->
         <svg class="mr-1" width="50" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -19,30 +19,23 @@
         Z-store
       </router-link>
       <div class="d-flex justify-content-center align-items-center ml-auto">
-        <router-link class="text-white" to="/services">SERVICES</router-link>
-        <ShoppingCart :empty="empty" :products="products" :cart="cart"></ShoppingCart>
-        <button class="bg-transparent font-weight-bold border-0 text-light ml-auto"
+        <router-link to="/services">SERVICES</router-link>
+        <button class="btn btn-outline-info font-weight-bold border-0 ml-auto"
           @click="Do()" to="/">{{button}}</button>
       </div>
     </div>
 </template>
 <script>
-import ShoppingCart from '@/components/ShoppingCart.vue';
-
 export default {
-  props: ['empty', 'products', 'cart'],
-  components: {
-    ShoppingCart,
-  },
   data: () => ({
     button: '',
   }),
   mounted() {
     if (localStorage.token) {
       console.log(localStorage.token);
-      this.button = 'Log out';
+      this.button = 'LOG IN';
     } else {
-      this.button = 'Sign up';
+      this.button = 'SIGN UP';
     }
   },
   methods: {
@@ -66,7 +59,7 @@ export default {
 </script>
 <style>
 .navbar {
-  background: #454541;
+  background: #f2f3f2;
 }
 .nav-button {
   background: #f4ba7c;
@@ -79,7 +72,10 @@ export default {
 #nav a {
   text-decoration: none;
   font-weight: bold;
-  color: #2c3e50;
+  color: #454541;
+}
+button {
+  color: #454541;
 }
 
 #nav a.router-link-exact-active {

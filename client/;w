@@ -26,8 +26,10 @@
               to do with my clients,
               if you want me to draw something
             </p>
-            <a href="http://instagram/zainab_taibi_art"
-              class="mt-4">Contact</a>
+            <button class="col-2 btn btn-info">
+              <a href="http://instagram/zainab_taibi_art"
+                class="contact">Contact</a>
+            </button>
 
           </div>
         </div>
@@ -62,5 +64,8 @@ export default {
 <style>
 .product {
   margin-top: 83px;
+}
+.contact {
+  text-decoration: none;
 }
 </style>
